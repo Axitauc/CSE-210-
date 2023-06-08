@@ -37,8 +37,8 @@ public class Journal {
             string[] parts = line.Split(",");
             string prompt = parts[0];
             string userInput = parts[1];
-            string date = parts[2];
-            string emotion = parts[3];
+            string date = parts[3];
+            string emotion = parts[2];
             Entry entry = new Entry(prompt, userInput, date, emotion);
             Console.WriteLine(entry.DisplayEntry());
             Registers.Add(entry);
