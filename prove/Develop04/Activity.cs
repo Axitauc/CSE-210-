@@ -15,10 +15,10 @@ public class Activity{
 
     public string RequestTime() {
         Console.WriteLine(); 
-        Console.WriteLine("How long, in seconds, would you like for your session? (Type a letter)");
+        Console.WriteLine("- How long, in seconds, would you like for your session? (Type a letter)");
         Console.Write("a. 10 seg \nb. 20 seg \nc. 30 seg \nd. 40 seg \n"); 
         Console.WriteLine(); 
-        Console.Write("> ");
+        Console.Write("     > ");
         _time = Console.ReadLine(); 
         return _time;
     }

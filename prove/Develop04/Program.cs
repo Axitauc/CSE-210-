@@ -10,22 +10,23 @@ class Program
 
         while(userSelection != 4) {
             Console.Clear(); 
-            Console.WriteLine("> Please, select one of the options: ");
+            Console.WriteLine("- Please, select one of the options: ");
             Console.WriteLine(" ");
-            Console.WriteLine(" 1.Brething Activity");
+            Console.WriteLine(" 1.Breathing Activity");
             Console.WriteLine(" 2.Reflecting Activity");
             Console.WriteLine(" 3.Listing Activity");
             Console.WriteLine(" 4.Quit"); 
-            Console.WriteLine(" ");
-            Console.Write("> "); 
+            Console.WriteLine();
+            Console.Write("     > "); 
             userSelection = int.Parse(Console.ReadLine());
-            Console.WriteLine(" ");
+            Console.WriteLine();
 
             if (userSelection == 1) {
                 Console.Clear();
                 Breath BreathActivity = new Breath();
                 Console.Write("Welcome to "); 
                 BreathActivity.GetActivityName(); 
+                Console.WriteLine();
                 BreathActivity.GetActivityDescription(); 
                 Console.WriteLine();
                 switch(BreathActivity.RequestTime()) {
@@ -65,21 +66,35 @@ class Program
         
             }
             else if (userSelection == 2) {
+                Console.Clear();
+                List ReflectingActivity = new List();
+                Console.Write("Welcome to "); 
+                ReflectingActivity.GetActivityName(); 
+                Console.WriteLine();
+                ReflectingActivity.GetActivityDescription();
+                Console.WriteLine(); 
+                
                 
             }
             else if (userSelection == 3) {
+                Console.Clear();
                 List ListingActivity = new List();
                 Console.Write("Welcome to "); 
                 ListingActivity.GetActivityName(); 
+                Console.WriteLine();
                 ListingActivity.GetActivityDescription(); 
-                ListingActivity.Timer(); 
-            }
+                Console.WriteLine();
+                ListingActivity.Timer();
+                Thread.Sleep(3000);
                 
+            }
             else if (userSelection == 4) {
+                Console.Clear();
                 Console.WriteLine("- I will be waiting for you!");
                 break;
             }
             else {
+                Console.Clear();
                 Console.WriteLine("- Please entry a valid option.");
                 Console.WriteLine(" ");
             }

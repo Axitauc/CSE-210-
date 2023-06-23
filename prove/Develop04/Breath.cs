@@ -14,10 +14,10 @@ public class Breath:Activity{
 
         for (int i=0; i <= iterations; i++){
             Console.Clear();
-            Console.Write("Breath In..."); 
+            Console.Write("--> Breath In..."); 
             DisplayCounter(_seconds += 1);
             Console.WriteLine();
-            Console.Write("Breath Out..."); 
+            Console.Write("<-- Breath Out..."); 
             DisplayCounter(_seconds);
             Console.WriteLine();
         }
