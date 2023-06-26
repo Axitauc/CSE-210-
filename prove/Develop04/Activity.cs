@@ -37,11 +37,19 @@ public class Activity{
         }
     }
 
-    public virtual void Timer(){
+    public virtual void ListActivityTimer(){
         Console.WriteLine("How long, in seconds, would you like for your session? ");
         int requested_Time = int.Parse(Console.ReadLine()); 
         _startTime = DateTime.Now;
         _futureTime = _startTime.AddSeconds(requested_Time);
+       
+    }
+
+    public virtual void ReflectActivityTimer(){
+        Console.WriteLine("How long, in seconds, would you like for your session? ");
+        int requested_time = int.Parse(Console.ReadLine()); 
+        _startTime = DateTime.Now;
+        _futureTime = _startTime.AddSeconds(requested_time);
        
     }
 

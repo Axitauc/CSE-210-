@@ -22,7 +22,7 @@ public class List:Activity {
          
     }
 
-    public override void Timer(){
+    public override void ListActivityTimer(){
         Console.WriteLine("- How long, in seconds, would you like for your session? ");
         int requested_Time = int.Parse(Console.ReadLine()); 
         Console.Clear();

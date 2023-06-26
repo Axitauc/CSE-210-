@@ -4,10 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-
         int userSelection = 0; 
-        
-
         while(userSelection != 4) {
             Console.Clear(); 
             Console.WriteLine("- Please, select one of the options: ");
@@ -67,12 +64,14 @@ class Program
             }
             else if (userSelection == 2) {
                 Console.Clear();
-                List ReflectingActivity = new List();
+                Reflect ReflectingActivity = new Reflect();
                 Console.Write("Welcome to "); 
                 ReflectingActivity.GetActivityName(); 
                 Console.WriteLine();
                 ReflectingActivity.GetActivityDescription();
                 Console.WriteLine(); 
+                ReflectingActivity.ReflectActivityTimer();
+                Thread.Sleep(3000);
                 
                 
             }
@@ -84,7 +83,7 @@ class Program
                 Console.WriteLine();
                 ListingActivity.GetActivityDescription(); 
                 Console.WriteLine();
-                ListingActivity.Timer();
+                ListingActivity.ListActivityTimer();
                 Thread.Sleep(3000);
                 
             }
