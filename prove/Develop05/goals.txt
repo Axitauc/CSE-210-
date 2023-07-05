@@ -1,0 +1,4 @@
+0
+Simple, False,    Running,    30 minutes per day. , 100
+Eternal, False,    Eating Breakfast,    Every morning is mandatory to drink a healthy beverage. , 200
+Checklist, False, Romanization, Learn 3 songs per day, 200, 0, 2
