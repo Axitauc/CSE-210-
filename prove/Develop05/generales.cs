@@ -41,7 +41,8 @@ public static class Generales{
             ToDoGoals.Add(checkList);
         }
         
-    }
+    
+    
 
     
 
