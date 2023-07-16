@@ -55,12 +55,13 @@ public class Activity{
 
     public void DisplayCounter(int progressiveCounter = 5){
        
-           for (; progressiveCounter >= progressiveCounter && progressiveCounter >= 0;){
+        for (; progressiveCounter >= progressiveCounter && progressiveCounter >= 0;)
+        {
             Console.Write(progressiveCounter);
             Thread.Sleep(1000);
             Console.Write("\b");
             progressiveCounter -= 1;
-           }
+        }
     }
 
     public virtual void GetActivityName(){

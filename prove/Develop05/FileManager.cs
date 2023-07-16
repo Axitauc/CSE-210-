@@ -47,6 +47,7 @@ public static class FileManager {
                 int _goalRepetition = int.Parse(parts[6]);
                 CheckList checkList = new CheckList(_goalName, _goalDescription, _goalPoints, _goalCounter, _goalRepetition);
                 Generales.ToDoGoals.Add(checkList);
+                
             }
         }
     }

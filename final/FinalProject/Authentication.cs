@@ -1,10 +1,9 @@
 public class Authentication {
     protected string _userName;
     protected string _password;
-    string _oldPassword; 
-    string _newPassword1; 
-    string  _newPassword2;
     int _numberSeries = 9999999; 
+    public User _actualUser; 
+    Animations Animation = new Animations();
     
     public Authentication()
     {
@@ -14,28 +13,37 @@ public class Authentication {
     public void SignUp()
     {
         Console.WriteLine("=> Type a username: ");
-        Console.Write("     -");
+        Console.WriteLine();
+        Console.Write("     - ");
         _userName = Console.ReadLine();
         Console.WriteLine();
         Console.WriteLine("=> Type a password: ");
-        Console.Write("     -");
+        Console.WriteLine();
+        Console.Write("     - ");
         _password = Console.ReadLine();
-
         Console.WriteLine();
 
         string YNOrder = "";
 
-        while (YNOrder != "Y" && YNOrder != "N")
-        {
-            Console.WriteLine("--> Your credentials are: ");
-            Console.WriteLine(      $"Username: {_userName}");
-            Console.WriteLine(      $"Password: {_password}"); 
-            Console.WriteLine("     > Type 'Y' to verify your credentials.");
-            Console.WriteLine("     > Type 'N' to change your credentials.");
-            Console.Write("     -");
-            YNOrder = Console.ReadLine();
 
-            if (YNOrder == "Y")
+        while (YNOrder != "y" && YNOrder != "n")
+        {   
+            Console.Clear();
+            Console.WriteLine("ATM CASHIER || SIGN UP VERIFICATION");
+            Console.WriteLine();
+            Console.WriteLine("    > Your credentials are: ");
+            Console.WriteLine();
+            Console.WriteLine($"            Username: {_userName}");
+            Console.WriteLine($"            Password: {_password}"); 
+            Console.WriteLine();
+            Console.WriteLine("- Type 'y' to verify your credentials.");
+            Console.WriteLine("- Type 'n' to change your credentials.");
+            Console.WriteLine();
+            Console.Write("             - ");
+            YNOrder = Console.ReadLine();
+            Console.WriteLine();
+
+            if (YNOrder == "y")
             {
                 // Crear el usuario 
                 User user = new User(_userName, _password);
@@ -43,18 +51,22 @@ public class Authentication {
                 user.CreateAccountNumber(_numberSeries);
                 Database.UsersInformation.Add(user); 
                 Database.SaveUsers(user);
-                Console.WriteLine("[ANIMATION] Congrats! You created a new account.");
+                Console.Clear();
+                Animation.NewUserCreated();
 
             }
-            else if(YNOrder == "N")
+            else if(YNOrder == "n")
             {
                 // Go back to the beggining. 
+                Console.Clear();
+                Console.WriteLine("ATM CASHIER || SIGN UP VERIFICATION");
+                Console.WriteLine();
                 SignUp();
             }
             else
             {
-                // [ANIMATION] 
-                Console.WriteLine("Invalid answer. Try again.");
+                Console.Clear(); 
+                Animation.InvalidOption();
             }
         }
     }
@@ -62,89 +74,74 @@ public class Authentication {
     public bool Login()
     {
         Console.WriteLine("=> Type your username: ");
-        Console.Write("     -");
+        Console.WriteLine();
+        Console.Write("     - ");
         _userName = Console.ReadLine();
+        Console.WriteLine();
         Console.WriteLine("=> Type your password: ");
-        Console.Write("     -");
+        Console.WriteLine();
+        Console.Write("     - ");
         _password = Console.ReadLine();
 
         foreach (User user in Database.UsersInformation)
         {
             if (_userName == user.getUserName() && _password == user.getPassword())
             {
+                _actualUser = user; 
                 return true;
             }
             else
             {
-               return false;
+               continue;
             }
         }
-
         return false;
     }
 
     public void LogOut()
     {   
         string YNOrder = "";
-        Console.WriteLine("=> Would you like to finish the session? (Y/N) "); 
+        Console.WriteLine("=> Would you like to finish the session? (y/n) "); 
         Console.Write("     -");
         YNOrder = Console.ReadLine();
-        if (YNOrder == "Y")
+        if (YNOrder == "y")
         {
-            // [Animation] Comeback soon! 
+            Console.Clear();
+            Animation.SeeYouSoon();
         }
-        else if(YNOrder!= ("N"))
+        else if(YNOrder!= ("n"))
         {
             // Stays.
+            Login();
         }
         else
         {
-            // [Animation] Invalid answer. Try again.
+            Console.Clear();
+            Animation.InvalidOption();
         }
     }
 
-    public void EditPassword()
+    public bool ContinueOperation()
     {
-        string YNOrder = "";
-        Console.WriteLine("=> Would you like to change your password? (Y/N) "); 
-        Console.Write("     -");
-        YNOrder = Console.ReadLine();
-         if (YNOrder == "Y")
+        Console.WriteLine();
+        Console.WriteLine("ATM CASHIER || NEW TRANSACTION");
+        Console.WriteLine();
+        Console.WriteLine("=> Would you like to process another transaction? (y/n)"); 
+        Console.WriteLine();
+        Console.Write("     - "); 
+        string YNOrder = Console.ReadLine();
+        Console.WriteLine();
+        if (YNOrder == "y")
         {
-            Console.Write("=> Type old password: "); 
-            _oldPassword = Console.ReadLine(); 
-
-            if (_oldPassword == _password)
-            {
-                Console.Write("=> Type new password: ");
-                _newPassword1 = Console.ReadLine();
-                Console.Write("=> Type again your new password: ");
-                _newPassword2 = Console.ReadLine();
-                if (_newPassword1 == _newPassword2)
-                {
-                    // [Animation] You changed your password! 
-                }
-                else
-                {
-                    // [Animation] Incorrect. Try again.
-
-                }
-            }
-            else 
-            {
-                // [Animation] Incorrect. Try again.
-            }
-
-        }
-        else if(YNOrder!= ("N"))
-        {
-            // Stays.
+            // Llamar UserActions
+            return true;
         }
         else
         {
-            // [Animation] Invalid answer. Try again.
+            Animation.SeeYouSoon();
+            // Romper el programa. 
+            return false;
         }
-        Console.WriteLine("[Animation] Thank you, come back soon!");
     }
 
 }

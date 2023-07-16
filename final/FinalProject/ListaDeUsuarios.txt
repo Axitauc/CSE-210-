@@ -1,2 +1,10 @@
-
-Axa,Uribe,AX9999998,0
+Axa,Uribe,AX9999998,30000
+Yobana,Uribe,YO9999998,4734
+Andres,Castro,AN9999998,11111
+Piero,Rojo,PI9999998,3000
+Alexander,Pacherrez,AL9999998,0
+Axa,Velazques,AX9999998,0
+Dominig,Soza,DO9999998,0
+Marco,Sotelo,MA9999998,0
+Shiro,Contreras,SH9999998,0
+Paul,Carlus-Passe,PA9999998,0
