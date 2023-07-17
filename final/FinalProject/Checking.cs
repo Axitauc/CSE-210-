@@ -20,12 +20,10 @@ public class CheckIn : Account
         if (Autenticador._actualUser.getBalance() < TransactionAmount)
         {
             Animation.InvalidOption();
-            Withdraw(Autenticador);
-        }
-        
+            return Withdraw(Autenticador);
+        }        
         double balance = Autenticador._actualUser.getBalance() - TransactionAmount;
         double[] transactionValues = {balance, TransactionAmount};   
-        
         return transactionValues;
     }
 

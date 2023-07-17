@@ -27,6 +27,7 @@ public class Summary
         Console.WriteLine();
         counter += 1; 
         }
+        
 
     }
     
@@ -64,6 +65,7 @@ public class Summary
     public void LoadSummary(string fileName)
     {
         fileName = $"{fileName}.txt";
+
         string[] lines = System.IO.File.ReadAllLines(fileName);
         foreach (string line in lines)
         {         
